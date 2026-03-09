@@ -5,3 +5,14 @@ description = "Random quote generator test 382..."
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
+
+[dependency-groups]
+dev = [
+    "bandit>=1.9.4",
+    "black>=26.3.0",
+    "flake8>=7.3.0",
+    "isort>=8.0.1",
+    "pytest>=9.0.2",
+    "pytest-cov>=7.0.0",
+    "safety>=3.7.0",
+]
