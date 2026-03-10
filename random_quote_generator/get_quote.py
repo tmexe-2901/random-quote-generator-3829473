@@ -13,4 +13,4 @@ def get_quote() -> dict:
     :rtype: dict
     """
 
-    return quotes[random.randint(0, len(quotes) - 1)] #nosec B311
+    return quotes[random.randint(0, len(quotes) - 1)]  # nosec B311
