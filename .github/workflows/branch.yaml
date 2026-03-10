@@ -22,7 +22,7 @@ jobs:
     - name: Run tests
       run: uv run pytest
   code-quality:
-    stratergy:
+    strategy:
       fail-fast: false
       matrix:
         python-version: ["3.13.0"]
