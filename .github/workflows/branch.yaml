@@ -21,3 +21,28 @@ jobs:
       run: uv sync --frozen
     - name: Run tests
       run: uv run pytest
+  code-quality:
+    stratergy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.13.0"]
+        os: [ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+    - uses: actions/checkout@v4
+    - name: Install UV
+      uses: astral-sh/setup-uv@v5
+      with:
+        enable-chache: true
+    - name: Setup python
+      run: uv install python ${{ matrix.python-version }}
+    - name: Install project dependencies
+      run: uv sync --frozen
+    - name: Run Black
+      run: uv run black . --check --fast
+    - name: Run isort
+      run: uv run isort . --check-only --profile black
+    - name: Run flake8
+      run: uv run flake8 random_quote_generator/ tests/ docs/
+    - name: Run Bandit SAST
+      run: uv run bandit -r random_quote_generator/

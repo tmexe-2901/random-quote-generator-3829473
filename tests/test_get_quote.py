@@ -12,4 +12,3 @@ def test_get_quote():
     quote = get_quote()
 
     assert quote in quotes
-    
