@@ -35,7 +35,7 @@ jobs:
       with:
         enable-chache: true
     - name: Setup python
-      run: uv install python ${{ matrix.python-version }}
+      run: uv python install ${{ matrix.python-version }}
     - name: Install project dependencies
       run: uv sync --frozen
     - name: Run Black
